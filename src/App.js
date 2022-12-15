@@ -1,7 +1,18 @@
+import React from "react";
+import { useSelector } from "react-redux";
+import Auth from "./components/Auth";
+import Layout from "./components/Layout";
+
 function App() {
+  const cartItems = useSelector((state) => state.cart.itemsList);
+  console.log(cartItems);
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  console.log(isLoggedIn);
+
   return (
-    <div>
-      <h1>Hello world</h1>
+    <div className="App">
+      {!isLoggedIn && <Auth />}
+      {isLoggedIn && <Layout />}
     </div>
   );
 }
