@@ -6,14 +6,15 @@ import "./Auth.css";
 
 const Auth = () => {
   const dispatch = useDispatch();
-  const authSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
+    // dispatch
     dispatch(authActions.login());
   };
   return (
     <div className="container">
-      <h1>Login</h1>
-      <form onSubmit={authSubmit}>
+      <h1>Login</h1>{" "}
+      <form onSubmit={handleSubmit}>
         <label htmlFor="id">Id</label>
         <input type="text" name="id" id="id" />
         <label htmlFor="password">Password</label>
